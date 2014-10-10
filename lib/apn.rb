@@ -49,7 +49,7 @@ module APN
     end
 
     def logger
-      @logger ||= Logger.new(STDOUT)
+      @logger ||= (defined?(Rails) ? Rails.logger : Logger.new(STDOUT))
     end
 
     def truncate_alert
